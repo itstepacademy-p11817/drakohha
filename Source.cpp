@@ -4,7 +4,7 @@ int main() {
 	int b = 0;
 	int yslovie = 1;
 	while (yslovie != 0) {
-		std::cout << "\n"<< "Vvedite nomer zadani9" << "\n" << "1-pervoe" << "\n" << "2-vtoroe" << "\n" << "3-tretie" << "\n" << "4-4etvertoe" << "\n" << "5-patoe" << "\n" << "0-vuhod"<<"\n";
+		std::cout << "\n"<< "Vvedite nomer zadani9" << "\n" << "1-pervoe" << "\n" << "2-vtoroe" << "\n" << "3-tretie" << "\n" << "4-4etvertoe" << "\n" << "5-patoe" << "\n" << "6-hestoe"<<"\n" << "0-vuhod"<<"\n";
 		std::cin >> yslovie;
 		if (yslovie > 5 && yslovie < 0) {
 			std::cout << "\n" << "nevernui vvod, vvedite zanovo" << "\n";
@@ -84,5 +84,88 @@ int main() {
 			}
 
 		}
+
+		if (yslovie == 6)
+		{
+			std::cout << "\n" << "Zadacca pro vasu" << "\n";
+			static int kolstrok = 0;
+			static int zarplata = 0;
+			static int opozdania = 0;
+			static int flag_menu = 1;
+			while (flag_menu != 0) {
+				std::cout << "\n" << "1-dl9 vvoda koli4etva strok"<<"   tekuhee zna4enie = " << kolstrok;
+				std::cout << "\n" << "2-dl9 vvoda koli4etva zarplatu" <<"    tekuhee zna4enie = " << zarplata ;
+				std::cout << "\n" << "3-dl9 vvoda koli4stva opozdanii"<<"    tekuhee zna4enie = " <<opozdania ;
+				std::cout << "\n" << "4-pos4itatb znacenie zarplatu";
+				std::cout << "\n" << "5-pos4itatb znacenie opozdai9";
+				std::cout << "\n" << "6-pos4itatb znacenie koli4estva strok" <<"\n";
+				std::cout << "\n" << "0 -vuhod" <<"\n";
+				static  int flag_deistvi9;
+				std::cin >> flag_deistvi9;
+				if (flag_deistvi9 == 1)
+				{
+					std::cout << "\n" << "vvedite kol strok=";
+					std::cin >> kolstrok;
+
+				}
+				if (flag_deistvi9 ==2 )
+				{
+					std::cout << "\n" << "vvedite kol zarplatu=";
+					std::cin >> zarplata;
+
+				}
+				if (flag_deistvi9 == 3)
+				{
+					std::cout << "\n" << "vvedite kol opozdanii=";
+					std::cin >> opozdania;
+
+				}
+				if (flag_deistvi9 == 4)
+				{
+					std::cout << "\n" << "zarplata rafna=";
+					zarplata = ((kolstrok / 100) * 50) - ((opozdania / 3) * 20);
+					if (zarplata < 0)
+					{
+						std::cout << "u vas net zarpalu";
+						zarplata = 0;
+					}
+					else {
+						std::cout << zarplata;
+					}
+
+				}
+				if (flag_deistvi9 == 5)
+				{
+					std::cout << "\n" << "koli4etvo opozdanii=";
+					opozdania = ((((kolstrok / 100) * 50) -zarplata  ) / 20)*3;
+					if (opozdania < 0)
+					{
+						std::cout <<"opazduvatb nezz9" <<"\n";
+						opozdania = 0;
+					}
+					else {
+
+
+						std::cout << opozdania;
+					}
+
+				}
+				if (flag_deistvi9 == 6)
+				{
+					std::cout << "\n" << " kol strok=";
+					kolstrok = ((zarplata + ((opozdania/3) * 20)    ) / 50)*100;
+
+					std::cout << kolstrok;
+
+				}
+				if (flag_deistvi9 == 0)
+				{
+					flag_menu = 0;
+				}
+			}
+			std::cout << "\n" << "vvedite koli4etvo";
+		}
+
+
 	}
 }
