@@ -53,7 +53,7 @@ int main() {
 					static int toplivo = 300;
 					rast = skorost * rast_ab; //rashod topliva na rasto9nie ab
 					rast2 = skorost*rast_bc; //toplivo na rasto9ni bc
-					if (toplivo <= rast && toplivo <=rast2) {
+					if (toplivo >= rast && toplivo >=rast2) {
 						toplivo = toplivo - rast;
 						
 						std::cout << "\n" << "Dl9 poleta iz A v B potrebili topliva=" << rast;
@@ -67,6 +67,10 @@ int main() {
 							flag_zd1 = 0;
 						}
 
+					}
+					else {
+						std::cout << "\n" << "Rasto9nie slihkom bolhoe i s takim gruzom samolet ne doletit";
+						flag_deistvie = 0;
 					}
 				
 					
