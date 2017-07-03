@@ -1,6 +1,7 @@
 #include <iostream>
+using namespace std;
 int main() {
-	
+	setlocale(LC_ALL, "Russian");
 	int rast_ab = 0;
 	int rast_bc = 0;
 	int skorost = 0;
@@ -8,7 +9,7 @@ int main() {
 	int flag_deistvie = 0;
 	int gruz_ves = 0;
 	while (flag_menu != 0) {
-		std::cout << "\n"<<"Dobro pohalovat" << "\n" << "Vvedite nomer zadani9" << "\n" << "1-pervoe zadanie " << "\n" << "2-vtoroe zadanie" << "\n" << "3-trete zadanie" << "\n";
+		std::cout << "\n"<<"Добро пожаловать" << "\n" << "Vvedite nomer zadani9" << "\n" << "1-pervoe zadanie " << "\n" << "2-vtoroe zadanie" << "\n" << "3-trete zadanie" << "\n";
 		std::cin >> flag_deistvie;
 		if (flag_deistvie < 0 && flag_deistvie >3)
 		{
