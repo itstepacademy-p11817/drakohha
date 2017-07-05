@@ -106,6 +106,70 @@ int main() {
 				}
 			}
 		}
+		if (flag_menu == 4) {
+			while (flag_menu != 0) {
+				std::cout << "\n" << "Vvedite 4islo=";
+				static int kol = 1;
+				static int num = 0;
+				static int ID = 0;
+				static int t = 2;
+				std::cin >> num;
+				std::cout << "\n" << "Komputer putaecco otgadat!=";
+				static int num_pr = 0;
+				srand(time(NULL));
+				num_pr = rand()%500;
+				
+
+				while (num !=  num_pr) {
+					std::cout << "\n" << "o4erednai9 poputka=" << num_pr;
+				
+
+					static int i = 0;
+					i = num_pr;
+					while ( i != num)
+					{
+						if (i < num) {
+							i += num_pr;
+							
+							if (i > num) {
+								i -= num_pr;
+								t = t * 2;
+							}
+							i += (num_pr / t);
+							if (i > num) {
+								i -= (num_pr / t);
+							}
+							kol++;
+							
+						}
+						if (i > num) {
+							i -= (num_pr / t);
+							if (i < num) {
+								i += (num_pr / t);
+								t = t * 2;
+							}
+							kol++;
+						}
+						num_pr = i;
+						std::cout << "\n" << "o4erednai9 poputka=" << num_pr;
+						if ((i + 1) == num || ((i-1)==num)) {
+							kol++;
+							i = num;
+						}
+
+					}
+					
+					num_pr = num;
+					if (num_pr == num) {
+						std::cout << "\n" << "Komp ygadal 4islo= " << num_pr << " za " << kol << " poputok";
+					}
+					t = 2;
+					kol = 0;
+					break;
+				}
+				break;
+			}
+		}
 	}
 	return 0;
 }
