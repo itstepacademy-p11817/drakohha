@@ -1,171 +1,111 @@
 #include <iostream>
+#include <stdbool.h>
+#include <time.h>
+#include <stdlib.h>
 int main() {
-	int a = 0;
-	int b = 0;
-	int yslovie = 1;
-	while (yslovie != 0) {
-		std::cout << "\n"<< "Vvedite nomer zadani9" << "\n" << "1-pervoe" << "\n" << "2-vtoroe" << "\n" << "3-tretie" << "\n" << "4-4etvertoe" << "\n" << "5-patoe" << "\n" << "6-hestoe"<<"\n" << "0-vuhod"<<"\n";
-		std::cin >> yslovie;
-		if (yslovie > 5 && yslovie < 0) {
-			std::cout << "\n" << "nevernui vvod, vvedite zanovo" << "\n";
-			std::cin >> yslovie;
+	int flag_menu = 1;
+	while (flag_menu != 0) {
+		std::cout << "\n" << "VVedite nomer zadani9" << "\n" << "1-pervoe" << "\n" << "2-vtoroe" << "\n" << "3-tretie" << "\n" << "0-vuhod" << "\n";
+		std::cin >> flag_menu;
+		if (flag_menu == 0) {
+			break;
 		}
-		if (yslovie == 1)
-		{
-			std::cout << "\n" << "Vuvod 4isla ot 0 do vvedenogo polzovatrelem" << "\n" << "vvedite 4uslo" << "\n";
-			std::cin >> a;
-			while (b < a) {
-				std::cout << "\n" << b;
-				b++;
-			}
-		}
-		if (yslovie == 2) {
-			std::cout << "\n" << "polsovatel vvodit granicu diapozona, iz nego vuvesti kahdoe ne4etnoe" << "\n";
-			static int granica_1 = 0;
-			static int granica_2 = 0;
-			std::cout << "\n" << "vvedite pervuu granicu" << "\n";
-			std::cin >> granica_1;
-			std::cout << "\n" << "vvedite vtoruu granicu" << "\n";
-			std::cin >> granica_2;
-			for (int i = granica_1; i < granica_2; i++)
-			{
-				if (i % 2 != 0)
-				{
-					std::cout << "\n" << i;
-				}
-			}
-		}
-		if (yslovie == 3) {
-			std::cout << "\n" << "Vuvod stepeni 4isla" << "\n";
-			static int x = 0;
-			static int y = 0;
-			std::cout << "\n" << "vvedite x=";
-			std::cin >> x;
-			std::cout << "\n" << "vvedite y=";
-			std::cin >> y;
-			
-			for (int i = 1; i <= y; i++)
-			{
-				static int mag = x;
-				std::cout << "\n" << mag;
-				mag = mag*x;
-			}
-		}
-		if (yslovie == 4) {
-			std::cout << "\n" << "vuvesti summy vvedinux polsovatelem 4isel isp cikl. ostanovit pri vvode 4isla 0" << "\n";
-			std::cout << "\n" << "vvedite pervoe 4islo" << "\n";
-			static int pervoe;
-			static int vtoroe;
-			std::cin >> pervoe;
-			do {
-				std::cout << "\n" << "vvedite 4islo" << "\n";
+		if (flag_menu == 1) {
+			std::cout << "\n" << "Zadaca na pr9moygolnik" << "\n";
+			std::cout << "\n" << "Vvedite dlinu=";
+			static int dlina = 0;
+			std::cin >> dlina;
+			std::cout << "\n" << "Vvedite hurinu=";
+			static int shirina = 0;
+			std::cin >> shirina;
+			static char simvol = 'x';
+			for (int j = 1; j <= shirina; j++) {
 				
-				std::cin >> vtoroe;
-				pervoe += vtoroe;
-				std::cout << "\n" << "summa =" << pervoe;
-			} while (vtoroe != 0);
+					for (int i = 1; i <= dlina; i++) {
+						if (j==1 || j==shirina) {
+							std::cout << "x";
+						}
+						
+						}
+					if (j != 1 && j != shirina) {
+						std::cout << "x";
+						for (int g = 2; g < shirina; g++)
+						{
+							std::cout << " ";
+						}
+						std::cout << "x";
+					}
+					std::cout << "\n";
+					}
+				
+				
 			
 		}
-		if (yslovie == 5) {
-			std::cout << "\n" << "treugolnic v kosloli, zada4a na vlohinue cuklu" << "\n";
-			static int razmer = 0;
-			static char c;
-			std::cout << "\n" << "vvedite razmer treugolnica=";
-			std::cin >> razmer;
-			std::cout << "\n" << "vvedite simvol=";
-			std::cin >> c;
-			for (int i = 0; i < razmer; i++)
-			{
-				for (int z = 0; z <= i; z++)
+		if (flag_menu == 2) {
+			while (flag_menu!=0) {
+				std::cout << "\n" << "Konvertor valut" << "\n" ;
+				
+				static int kurs = 0;
+				static int flag_zd1 = 1;
+				static double dolar = 0;
+				static double rub = 0;
+				static double rezult = 0;
+				
+				std::cout << "\n" << "tekysui kurs: 1 dollar = " << kurs << "rublei" << "\n";
+				std::cout << "\n" << "vvedite nomer operacii:" << "\n" << "1-vvesti dollaru konvertirovatb v rubli" << "\n" << "2-vvesti rubli konvertirovat v dollaru" << "\n"<<"3-vvesti kurs"<<"\n" << "0-vuhod" <<"\n";
+				std::cin >> flag_zd1;
+				if (flag_zd1 == 0)
 				{
-					std::cout << c;
+					break;
+				}
+				if (flag_zd1 == 1) {
+					std::cout << "\n" << "dollaru=";
+					std::cin >> dolar;
+					rezult = dolar * kurs;
+					std::cout << "\n" << "Rubli ravnu =" << rezult <<"\n";
+				}
+				if (flag_zd1 == 2) {
+					std::cout << "\n" << "Rubli=";
+					std::cin >> rub;
+					
+					rezult = rub / kurs ;
+					std::cout << "\n" << "Dollari ravnu=" << rezult <<"\n";
+				}
+				if (flag_zd1 == 3) {
+					std::cout << "\n" << "Vvedite Kyrs rubla k dollaru=";
+					std::cin >> kurs;
+				}
+
+			}
+		}
+		if (flag_menu == 3) {
+			std::cout << "\n" << "Zagadaite 4islo=";
+			time_t start = time(NULL);
+
+			static int kol = 0;
+			static int num = 0;
+			static int num_pr = 0;
+			std::cin >> num;
+			srand(time(NULL));
+			num_pr = rand() % 500 + 1;
+			while (num != num_pr) {
+				if (num < num_pr) {
+					std::cout << "\n" << "Vahe 4islo menhe";
+					kol++;
+				}
+				if (num > num_pr) {
+					std::cout << "\n" << "Vahe 4islo bolhe";
+					kol++;
 				}
 				std::cout << "\n";
-			}
-
-		}
-
-		if (yslovie == 6)
-		{
-			std::cout << "\n" << "Zadacca pro vasu" << "\n";
-			static int kolstrok = 0;
-			static int zarplata = 0;
-			static int opozdania = 0;
-			static int flag_menu = 1;
-			while (flag_menu != 0) {
-				std::cout << "\n" << "1-dl9 vvoda koli4etva strok"<<"   tekuhee zna4enie = " << kolstrok;
-				std::cout << "\n" << "2-dl9 vvoda koli4etva zarplatu" <<"    tekuhee zna4enie = " << zarplata ;
-				std::cout << "\n" << "3-dl9 vvoda koli4stva opozdanii"<<"    tekuhee zna4enie = " <<opozdania ;
-				std::cout << "\n" << "4-pos4itatb znacenie zarplatu";
-				std::cout << "\n" << "5-pos4itatb znacenie opozdai9";
-				std::cout << "\n" << "6-pos4itatb znacenie koli4estva strok" <<"\n";
-				std::cout << "\n" << "0 -vuhod" <<"\n";
-				static  int flag_deistvi9;
-				std::cin >> flag_deistvi9;
-				if (flag_deistvi9 == 1)
-				{
-					std::cout << "\n" << "vvedite kol strok=";
-					std::cin >> kolstrok;
-
-				}
-				if (flag_deistvi9 ==2 )
-				{
-					std::cout << "\n" << "vvedite kol zarplatu=";
-					std::cin >> zarplata;
-
-				}
-				if (flag_deistvi9 == 3)
-				{
-					std::cout << "\n" << "vvedite kol opozdanii=";
-					std::cin >> opozdania;
-
-				}
-				if (flag_deistvi9 == 4)
-				{
-					std::cout << "\n" << "zarplata rafna=";
-					zarplata = ((kolstrok / 100) * 50) - ((opozdania / 3) * 20);
-					if (zarplata < 0)
-					{
-						std::cout << "u vas net zarpalu";
-						zarplata = 0;
-					}
-					else {
-						std::cout << zarplata;
-					}
-
-				}
-				if (flag_deistvi9 == 5)
-				{
-					std::cout << "\n" << "koli4etvo opozdanii=";
-					opozdania = ((((kolstrok / 100) * 50) -zarplata  ) / 20)*3;
-					if (opozdania < 0)
-					{
-						std::cout <<"opazduvatb nezz9" <<"\n";
-						opozdania = 0;
-					}
-					else {
-
-
-						std::cout << opozdania;
-					}
-
-				}
-				if (flag_deistvi9 == 6)
-				{
-					std::cout << "\n" << " kol strok=";
-					kolstrok = ((zarplata + ((opozdania/3) * 20)    ) / 50)*100;
-
-					std::cout << kolstrok;
-
-				}
-				if (flag_deistvi9 == 0)
-				{
-					flag_menu = 0;
+				std::cin >> num;
+				if (num == num_pr) {
+					std::cout << "\n" << "Vu ygadali za " << kol << "poputok";
+					int seconds = time(NULL) - start;
+					std::cout << "\n" << "vu potratili =" << seconds << "sekynd";
 				}
 			}
-			std::cout << "\n" << "vvedite koli4etvo";
 		}
-
-
 	}
+	return 0;
 }
